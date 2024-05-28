@@ -1,0 +1,45 @@
+.TH PASTA_PROJESI 1 "May 2024" "1.0" "Pasta Üretim Sistemi"
+.SH NAME
+pasta_projesi \- bir pasta üretim simülasyonu programı
+.SH SYNOPSIS
+.B pasta_projesi
+.RI \-i " dosya_yolu"
+.SH DESCRIPTION
+.B pasta_projesi
+Bir pasta üretim sistemini simüle eder. Program, belirli malzemelerle pastaları hazırlayan ve bu pastaları toptancıya teslim eden ustaları yönetir. Her usta, eksik olduğu iki malzemeyi bekler ve bu malzemeleri aldığında pastasını hazırlar.
+
+Program, verilen bir malzeme dosyasını okur ve malzemeleri ustalara dağıtarak pasta üretimini gerçekleştirir. Ustalar ve toptancı arasında senkronizasyon sağlamak için semaforlar ve mutexler kullanılır.
+
+.SH OPTIONS
+.TP
+.B \-i
+Malzeme dosyasının yolunu belirtir. Bu dosya, her satırında iki malzeme olacak şekilde formatlanmalıdır. Örnek bir dosya içeriği:
+.nf
+.SK
+.US
+.KU
+.YK
+.YS
+.YU
+.fi
+
+.SH EXAMPLES
+.B pasta_projesi \-i malzemeler.txt
+.RS
+Bu komut, `malzemeler.txt` dosyasındaki malzemeleri kullanarak pasta üretim sistemini başlatır.
+.RE
+
+.SH RETURN VALUE
+Program başarıyla tamamlandığında 0 döner. Hatalar durumunda, uygun bir hata mesajı stderr'e yazdırılır ve program 1 ile sonlanır.
+
+.SH AUTHOR
+.B pasta_projesi
+yazarları tarafından geliştirilmiştir.
+
+.SH COPYRIGHT
+Telif hakkı 2024, Muhammed Yasin Özdemir. Tüm hakları saklıdır.
+
+.SH SEE ALSO
+.BR pthread_create (3),
+.BR sem_init (3),
+.BR getopt (3)
